@@ -3,7 +3,8 @@
       [ngStyle]="{ opacity: imgOpacity }"
       src="{{ imgSrc }}"
       alt="{{ altTxt }}"
-      style="width: 100%;"
+      class="image"
+      
     />
     <figcaption *ngIf="figCaptionTxt && figCaptionTxt.trim().length > 0">
       {{ figCaptionTxt }}

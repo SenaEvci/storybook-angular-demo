@@ -577,17 +577,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Image.stories.ts",
-                "type": "Story<ImageComponent>",
-                "defaultValue": "(args: ImageComponent) => ({\r\n    component: ImageComponent,\r\n    props: args,\r\n})"
+                "file": "src/stories/Page.stories.ts",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+                "file": "src/stories/Image.stories.ts",
+                "type": "Story<ImageComponent>",
+                "defaultValue": "(args: ImageComponent) => ({\r\n    component: ImageComponent,\r\n    props: args,\r\n})"
             },
             {
                 "name": "WithFullOpacity",
