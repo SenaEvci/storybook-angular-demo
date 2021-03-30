@@ -6,8 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./image.component.css'],
 })
 export class ImageComponent implements OnInit {
+
+
+  constructor() { }
+
+  ngOnInit(): void { }
+
   @Input()
-  imgSrc: string = '/assets/rainbow.png'; //Make sure you add your image URL
+  imgSrc: string = '/assets/rainbow.png';
 
   @Input()
   altTxt?: string = 'Pondicherry French Hotel';
@@ -19,7 +25,4 @@ export class ImageComponent implements OnInit {
   @Input()
   imgOpacity?: number = 1;
 
-  constructor() { }
-
-  ngOnInit(): void { }
 }
