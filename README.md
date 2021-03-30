@@ -22,4 +22,4 @@
 ## Acces Deploy 
 #### http://YOUR_GITHUB_USERNAME.github.io/REPO_NAME
  
- ![](src\assets\overview-storybook.png)
+ ![ScreenShot](src\assets\overview-storybook.png)
