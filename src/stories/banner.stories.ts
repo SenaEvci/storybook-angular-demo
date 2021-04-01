@@ -1,14 +1,12 @@
-import { addDecorator, moduleMetadata, storiesOf } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
-// also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { ImageComponent } from '../components/image/image.component';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { BannerComponent } from 'src/components/banner/banner.component';
 
 export default {
-    title: 'Image Components/Image',
-    component: ImageComponent,
+    title: 'Image Components/Banner',
+    component: BannerComponent,
     import: [CommonModule],
     decorators: [
         withKnobs,
@@ -25,8 +23,8 @@ export default {
 
 } as Meta;
 
-const Template: Story<ImageComponent> = (args: ImageComponent) => ({
-    component: ImageComponent,
+const Template: Story<BannerComponent> = (args: BannerComponent) => ({
+    component: BannerComponent,
     props: args,
     parameters: {
         viewport: {
@@ -45,6 +43,7 @@ const Template: Story<ImageComponent> = (args: ImageComponent) => ({
     }
 });
 
+/*
 export const NoImageCaption = Template.bind({});
 NoImageCaption.args = {
     figCaptionTxt: '',
@@ -54,19 +53,26 @@ NoImageCaption.args = {
 export const WithImageCaption = Template.bind({});
 WithImageCaption.args = {
     figCaptionTxt: 'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with "rue", numerous parks and charming cafés.'
+};*/
+
+export const NoImageAltTxt = Template.bind({});
+NoImageAltTxt.args = {
+    altTxt: '',
+
 };
 
-export const WithFullOpacity = Template.bind({});
-WithFullOpacity.args = {
-    imgOpacity: 1
+export const WithImageAltTxt = Template.bind({});
+WithImageAltTxt.args = {
+    altTxt: 'Banner Exist',
+
 };
 
-export const WithHalfOpacity = Template.bind({});
-WithHalfOpacity.args = {
-    imgOpacity: 0.5
+export const WithFullHeight = Template.bind({});
+WithFullHeight.args = {
+    imgHeight: "500px"
 };
 
-export const WithWidth = Template.bind({});
-WithWidth.args = {
-    imgWidth: "500px"
+export const WithHalfHeight = Template.bind({});
+WithHalfHeight.args = {
+    imgHeight: "250px"
 };

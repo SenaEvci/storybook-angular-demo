@@ -91,6 +91,87 @@
             "templateData": "<app-image></app-image>"
         },
         {
+            "name": "BannerComponent",
+            "id": "component-BannerComponent-7b41f6f76dc9ba7af11911cf4037309c",
+            "file": "src/components/banner/banner.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-banner",
+            "styleUrls": [
+                "./banner.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./banner.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "altTxt",
+                    "defaultValue": "'Pondicherry French Hotel'",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "figCaptionTxt",
+                    "defaultValue": "'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.'",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "imgHeight",
+                    "defaultValue": "\"500px\"",
+                    "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "imgSrc",
+                    "defaultValue": "'/assets/kadriorg.jpg'",
+                    "line": 16,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-banner',\n  templateUrl: './banner.component.html',\n  styleUrls: ['./banner.component.css']\n})\nexport class BannerComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  @Input()\n  imgSrc: string = '/assets/kadriorg.jpg';\n\n  @Input()\n  altTxt?: string = 'Pondicherry French Hotel';\n\n  @Input()\n  figCaptionTxt?: string =\n    'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.';\n\n  @Input()\n  imgHeight?: string = \"500px\";\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".image{\r\n    width: 100%;\r\n    margin-left: 0% !important;\r\n    margin-right: 0% !important;\r\n}",
+                    "styleUrl": "./banner.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "\n<figure>\n    <div class=\"container-fluid\">\n    <img\n      [ngStyle]=\"{ height: imgHeight  }\"\n      src=\"{{ imgSrc }}\"\n      alt=\"{{ altTxt }}\"\n      class=\"image px-0\"\n      \n    />\n    </div>\n    <figcaption *ngIf=\"figCaptionTxt && figCaptionTxt.trim().length > 0\">\n      {{ figCaptionTxt }}\n    </figcaption>\n  </figure>\n"
+        },
+        {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-642c6c4e474cd5a0ac760dfda26b2fc9",
             "file": "src/stories/button.component.ts",
@@ -235,7 +316,7 @@
         },
         {
             "name": "ImageComponent",
-            "id": "component-ImageComponent-e4040540fea4ef18ac93b092f2523d3e",
+            "id": "component-ImageComponent-9ece7ba9ab3156c849b89e183f0fabc6",
             "file": "src/components/image/image.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -275,6 +356,12 @@
                     "defaultValue": "'/assets/rainbow.png'",
                     "line": 16,
                     "type": "string"
+                },
+                {
+                    "name": "imgWidth",
+                    "defaultValue": "\"100px\"",
+                    "line": 29,
+                    "type": "string"
                 }
             ],
             "outputsClass": [],
@@ -294,7 +381,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-image',\n  templateUrl: './image.component.html',\n  styleUrls: ['./image.component.css'],\n})\nexport class ImageComponent implements OnInit {\n\n\n  constructor() { }\n\n  ngOnInit(): void { }\n\n  @Input()\n  imgSrc: string = '/assets/rainbow.png';\n\n  @Input()\n  altTxt?: string = 'Pondicherry French Hotel';\n\n  @Input()\n  figCaptionTxt?: string =\n    'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.';\n\n  @Input()\n  imgOpacity?: number = 1;\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-image',\n  templateUrl: './image.component.html',\n  styleUrls: ['./image.component.css'],\n})\nexport class ImageComponent implements OnInit {\n\n\n  constructor() { }\n\n  ngOnInit(): void { }\n\n  @Input()\n  imgSrc: string = '/assets/rainbow.png';\n\n  @Input()\n  altTxt?: string = 'Pondicherry French Hotel';\n\n  @Input()\n  figCaptionTxt?: string =\n    'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.';\n\n  @Input()\n  imgOpacity?: number = 1;\n\n  @Input()\n  imgWidth?: string = \"100px\";\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -312,7 +399,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<figure>\n    <img\n      [ngStyle]=\"{ opacity: imgOpacity }\"\n      src=\"{{ imgSrc }}\"\n      alt=\"{{ altTxt }}\"\n      class=\"image\"\n      \n    />\n    <figcaption *ngIf=\"figCaptionTxt && figCaptionTxt.trim().length > 0\">\n      {{ figCaptionTxt }}\n    </figcaption>\n  </figure>\n  \n<!--\n  <a\n  [ngClass]=\"classes\"\n  [href]=\"href\"\n  [target]=\"target\"\n>\n  <ng-content></ng-content>\n</a>-->"
+            "templateData": "<div>\n<figure>\n    <img\n      [ngStyle]=\"{ opacity: imgOpacity, width:imgWidth }\"\n      src=\"{{ imgSrc }}\"\n      alt=\"{{ altTxt }}\"\n      class=\"image\"\n      \n    />\n    <figcaption *ngIf=\"figCaptionTxt && figCaptionTxt.trim().length > 0\">\n      {{ figCaptionTxt }}\n    </figcaption>\n  </figure>\n  \n<!--\n  <a\n  [ngClass]=\"classes\"\n  [href]=\"href\"\n  [target]=\"target\"\n>\n  <ng-content></ng-content>\n</a>-->"
         },
         {
             "name": "LinkComponent",
@@ -477,6 +564,9 @@
                             "name": "AppComponent"
                         },
                         {
+                            "name": "BannerComponent"
+                        },
+                        {
                             "name": "ImageComponent"
                         },
                         {
@@ -618,6 +708,14 @@
                 "name": "NoImageCaption",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/banner.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "NoImageCaption",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Image.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -652,6 +750,14 @@
                 "file": "src/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/banner.stories.ts",
+                "type": "Story<BannerComponent>",
+                "defaultValue": "(args: BannerComponent) => ({\r\n    component: BannerComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
             },
             {
                 "name": "Template",
@@ -694,10 +800,26 @@
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
+                "name": "WithFullHeight",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/banner.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "WithFullOpacity",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Image.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithHalfHeight",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/banner.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -711,6 +833,22 @@
             },
             {
                 "name": "WithImageCaption",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/banner.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithImageCaption",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Image.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithWidth",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Image.stories.ts",
@@ -871,6 +1009,48 @@
                     "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
                 }
             ],
+            "src/stories/banner.stories.ts": [
+                {
+                    "name": "NoImageCaption",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/banner.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/banner.stories.ts",
+                    "type": "Story<BannerComponent>",
+                    "defaultValue": "(args: BannerComponent) => ({\r\n    component: BannerComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
+                },
+                {
+                    "name": "WithFullHeight",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/banner.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithHalfHeight",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/banner.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithImageCaption",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/banner.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "src/stories/Image.stories.ts": [
                 {
                     "name": "NoImageCaption",
@@ -906,6 +1086,14 @@
                 },
                 {
                     "name": "WithImageCaption",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Image.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithWidth",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/Image.stories.ts",
@@ -955,12 +1143,21 @@
                 "status": "low"
             },
             {
+                "filePath": "src/components/banner/banner.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BannerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
                 "filePath": "src/components/image/image.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ImageComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -1123,6 +1320,16 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/Image.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithWidth",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/Page.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1148,6 +1355,56 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/banner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoImageCaption",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/banner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/banner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithFullHeight",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/banner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithHalfHeight",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/banner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithImageCaption",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
