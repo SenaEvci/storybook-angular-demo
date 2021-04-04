@@ -76,3 +76,5 @@ export const WithHalfHeight = Template.bind({});
 WithHalfHeight.args = {
     imgHeight: "250px"
 };
+
+

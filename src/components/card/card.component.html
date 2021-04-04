@@ -1,0 +1,16 @@
+
+    <img
+    [ngStyle]="{ width: imgWidth}"
+    src="{{ imgSrc }}"
+    alt="{{ altTxt }}"
+    class="image"
+    
+  />
+<h1>{{ title }}</h1>
+<h2>{{ subtitle }}</h2>
+
+<hr *ngIf="title || subtitle || imgSrc">
+
+<p>{{ content }}</p>
+
+<button (click)="handleBtnClick()">Click me!</button>

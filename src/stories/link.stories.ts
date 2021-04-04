@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { moduleMetadata } from '@storybook/angular';
-import { Story } from '@storybook/angular/types-6-0';
+import { moduleMetadata, Story } from '@storybook/angular';
 import { LinkComponent } from 'src/components/link/link.component';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';

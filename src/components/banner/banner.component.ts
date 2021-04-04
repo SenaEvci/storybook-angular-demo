@@ -27,4 +27,5 @@ export class BannerComponent implements OnInit {
   @Input()
   imgHeight?: string = "500px";
 
+
 }

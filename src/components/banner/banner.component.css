@@ -1,5 +1,16 @@
-.image{
-   width: 100%;
-  
+* {
+	padding:0%;
+	margin:0%;
 }
-
+img {
+  height: auto;
+width:100% !important;
+}
+.imageCont {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    justify-content:flex-end;
+    overflow: hidden;
+   
+}

@@ -1,0 +1,41 @@
+
+ <div class="row">
+    <div class="col-12">
+      <p-carousel [value]="productsWishs" [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions"
+        [indicatorsContentClass]="'d-none'" [circular]="true">
+        <ng-template let-productsWish pTemplate="item">
+          <div class="card mx-2">
+            <img src="../../assets/{{ productsWish.img }}.jpg" class="img-fluid p-1"   [ngStyle]="{ opacity: imgOpacity, width:imgWidth }" />
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+
+
+  <!--
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+    <img
+      [ngStyle]="{ height: imgHeight}"
+      src="../../assets/{{imgSrc.img}}.jpg"
+      alt="{{ altTxt }}"
+      class="col-12 col-md d-flex align-items-center justify-content-center"
+      
+    />
+</div>
+    </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>-->
+
+

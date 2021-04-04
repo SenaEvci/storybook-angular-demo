@@ -1,13 +1,14 @@
-import { addDecorator, Meta, moduleMetadata, storiesOf, Story } from '@storybook/angular';
+import { SliderComponent } from 'src/components/slider/slider.component';
 import { CommonModule } from '@angular/common';
-// also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-import { ImageComponent } from '../components/image/image.component';
+import { Story, Meta } from '@storybook/angular/types-6-0';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { CarouselModule } from 'primeng/carousel';
+
 
 export default {
-    title: 'Image Components/Image',
-    component: ImageComponent,
+    title: 'Image Components/Slider',
+    component: SliderComponent,
     import: [CommonModule],
     decorators: [
         withKnobs,
@@ -24,8 +25,8 @@ export default {
 
 } as Meta;
 
-const Template: Story<ImageComponent> = (args: ImageComponent) => ({
-    component: ImageComponent,
+const Template: Story<SliderComponent> = (args: SliderComponent) => ({
+    component: SliderComponent,
     props: args,
     parameters: {
         viewport: {
@@ -44,16 +45,6 @@ const Template: Story<ImageComponent> = (args: ImageComponent) => ({
     }
 });
 
-export const NoImageCaption = Template.bind({});
-NoImageCaption.args = {
-    figCaptionTxt: '',
-
-};
-
-export const WithImageCaption = Template.bind({});
-WithImageCaption.args = {
-    figCaptionTxt: 'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with "rue", numerous parks and charming cafés.'
-};
 
 export const WithFullOpacity = Template.bind({});
 WithFullOpacity.args = {
@@ -69,3 +60,5 @@ export const WithWidth = Template.bind({});
 WithWidth.args = {
     imgWidth: "500px"
 };
+
+

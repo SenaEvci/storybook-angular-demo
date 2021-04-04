@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,6 +7,13 @@ import { AppComponent } from './app.component';
 import { ImageComponent } from '../components/image/image.component';
 import { LinkComponent } from '../components/link/link.component';
 import { BannerComponent } from '../components/banner/banner.component';
+import { SliderComponent } from '../components/slider/slider.component';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { AvatarComponent } from '../components/avatar/avatar.component';
+import { CardComponent } from 'src/components/card/card.component';
+
+
 
 @NgModule({
   declarations: [
@@ -13,11 +21,17 @@ import { BannerComponent } from '../components/banner/banner.component';
     ImageComponent,
     LinkComponent,
     BannerComponent,
+    SliderComponent,
+    AvatarComponent,
+    CardComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule,
+    ButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

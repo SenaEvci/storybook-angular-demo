@@ -88,11 +88,67 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<app-image></app-image>"
+            "templateData": "<app-slider></app-slider>\r\n\r\n"
+        },
+        {
+            "name": "AvatarComponent",
+            "id": "component-AvatarComponent-c0643fbff381d21bc656dde5ad09c45e",
+            "file": "src/components/avatar/avatar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-avatar",
+            "styleUrls": [
+                "./avatar.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./avatar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-avatar',\n  templateUrl: './avatar.component.html',\n  styleUrls: ['./avatar.component.css']\n})\nexport class AvatarComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./avatar.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"flex items-center\">\n    <j-avatar [avatarUrl]=\"user?.avatarUrl\"\n              [size]=\"20\">\n    </j-avatar>\n    <span class=\"ml-1-5 mr-1-5 user-name\">\n        {{ user?.name }}\n    </span>\n</div>"
         },
         {
             "name": "BannerComponent",
-            "id": "component-BannerComponent-7b41f6f76dc9ba7af11911cf4037309c",
+            "id": "component-BannerComponent-ab35356e24d293c1e42e08a14b8c1a14",
             "file": "src/components/banner/banner.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -116,20 +172,14 @@
                     "type": "string"
                 },
                 {
-                    "name": "figCaptionTxt",
-                    "defaultValue": "'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.'",
-                    "line": 22,
-                    "type": "string"
-                },
-                {
                     "name": "imgHeight",
                     "defaultValue": "\"500px\"",
-                    "line": 26,
+                    "line": 28,
                     "type": "string"
                 },
                 {
                     "name": "imgSrc",
-                    "defaultValue": "'/assets/kadriorg.jpg'",
+                    "defaultValue": "'./assets/kadriorg.jpg'",
                     "line": 16,
                     "type": "string"
                 }
@@ -151,11 +201,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-banner',\n  templateUrl: './banner.component.html',\n  styleUrls: ['./banner.component.css']\n})\nexport class BannerComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  @Input()\n  imgSrc: string = '/assets/kadriorg.jpg';\n\n  @Input()\n  altTxt?: string = 'Pondicherry French Hotel';\n\n  @Input()\n  figCaptionTxt?: string =\n    'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.';\n\n  @Input()\n  imgHeight?: string = \"500px\";\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-banner',\n  templateUrl: './banner.component.html',\n  styleUrls: ['./banner.component.css']\n})\nexport class BannerComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  @Input()\n  imgSrc: string = './assets/kadriorg.jpg';\n\n  @Input()\n  altTxt?: string = 'Pondicherry French Hotel';\n\n\n  /*\n  @Input()\n  figCaptionTxt?: string =\n    'The French Quarter or White Town area in Pondicherry is filled with elegant colonial mansions in the midst of tree-lined boulevards, named on French streets beginning with \"rue\", numerous parks and charming cafés.';\n*/\n  @Input()\n  imgHeight?: string = \"500px\";\n\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".image{\r\n    width: 100%;\r\n    margin-left: 0% !important;\r\n    margin-right: 0% !important;\r\n}",
+                    "data": "* {\r\n\tpadding:0%;\r\n\tmargin:0%;\r\n}\r\nimg {\r\n  height: auto;\r\nwidth:100% !important;\r\n}\r\n.imageCont {\r\n    display: flex;\r\n    flex-direction: column;\r\n    max-height: 400px;\r\n    justify-content:flex-end;\r\n    overflow: hidden;\r\n   \r\n}\r\n",
                     "styleUrl": "./banner.component.css"
                 }
             ],
@@ -169,7 +219,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "\n<figure>\n    <div class=\"container-fluid\">\n    <img\n      [ngStyle]=\"{ height: imgHeight  }\"\n      src=\"{{ imgSrc }}\"\n      alt=\"{{ altTxt }}\"\n      class=\"image px-0\"\n      \n    />\n    </div>\n    <figcaption *ngIf=\"figCaptionTxt && figCaptionTxt.trim().length > 0\">\n      {{ figCaptionTxt }}\n    </figcaption>\n  </figure>\n"
+            "templateData": "\n\n    <div class=\"container-fluid imageCont\">\n    <img\n      [ngStyle]=\"{ height: imgHeight}\"\n      src=\"{{ imgSrc }}\"\n      alt=\"{{ altTxt }}\"\n      class=\"image\"\n      \n    />\n    </div>\n\n    <!--\n    <figcaption *ngIf=\"figCaptionTxt && figCaptionTxt.trim().length > 0\">\n      {{ figCaptionTxt }}\n    </figcaption>\n  </figure>-->"
         },
         {
             "name": "ButtonComponent",
@@ -251,6 +301,73 @@
                     }
                 }
             }
+        },
+        {
+            "name": "CardComponent",
+            "id": "component-CardComponent-c01619a11179d41d88781c8a3890fc1a",
+            "file": "src/components/card/card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-card",
+            "styleUrls": [
+                "./card.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "content",
+                    "defaultValue": "'😄'",
+                    "line": 14
+                },
+                {
+                    "name": "subtitle",
+                    "line": 13,
+                    "type": "any"
+                },
+                {
+                    "name": "title",
+                    "line": 12,
+                    "type": "any"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "btnClicked",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "line": 15,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.css']\n})\nexport class CardComponent {\n\n  constructor() { }\n\n  @Input('title') title: any;\n  @Input('subtitle') subtitle: any;\n  @Input('content') content = '😄';\n  @Output() btnClicked = new EventEmitter<boolean>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "\r\n:host {\r\n        text-align: center;\r\n        background: white;\r\n        display: block;\r\n        padding: .45rem .65rem;\r\n        border-radius: 3px;\r\n        max-width: 325px;\r\n        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\r\n      }\r\n  h2 {\r\n    color: #c85f7f;\r\n  }\r\n  \r\n  p {\r\n    text-align: center;\r\n  } ",
+                    "styleUrl": "./card.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "templateData": "<h1>{{ title }}</h1>\n<h2>{{ subtitle }}</h2>\n\n<hr *ngIf=\"title || subtitle\">\n\n<p>{{ content }}</p>\n\n<button (click)=\"handleBtnClick()\">Click me!</button>"
         },
         {
             "name": "HeaderComponent",
@@ -547,6 +664,89 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "SliderComponent",
+            "id": "component-SliderComponent-692182285c88b92be3d19815e6ee3af8",
+            "file": "src/components/slider/slider.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-slider",
+            "styleUrls": [
+                "./slider.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./slider.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "imgOpacity",
+                    "defaultValue": "1",
+                    "line": 45,
+                    "type": "number"
+                },
+                {
+                    "name": "imgWidth",
+                    "defaultValue": "\"300px\"",
+                    "line": 48,
+                    "type": "string"
+                },
+                {
+                    "name": "productsWishs",
+                    "defaultValue": "[\n    { img: 'sims' },\n    { img: 'angrybirds' },\n    { img: 'supermario' },\n    { img: 'fifa' }\n  ]",
+                    "line": 37
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "responsiveOptions",
+                    "defaultValue": "[]",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n\n@Component({\n  selector: 'app-slider',\n  templateUrl: './slider.component.html',\n  styleUrls: ['./slider.component.css']\n})\nexport class SliderComponent implements OnInit {\n\n  responsiveOptions: any = [];\n\n  constructor() {\n    this.responsiveOptions = [\n      {\n        breakpoint: '1024px',\n        numVisible: 3,\n        numScroll: 3\n      },\n      {\n        breakpoint: '768px',\n        numVisible: 2,\n        numScroll: 2\n      },\n      {\n        breakpoint: '560px',\n        numVisible: 1,\n        numScroll: 1\n      }\n    ];\n  }\n\n  ngOnInit(): void {\n  }\n\n  @Input()\n  productsWishs = [\n    { img: 'sims' },\n    { img: 'angrybirds' },\n    { img: 'supermario' },\n    { img: 'fifa' }\n  ];\n\n  @Input()\n  imgOpacity?: number = 1;\n\n  @Input()\n  imgWidth?: string = \"300px\";\n\n\n}\n\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./slider.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 11
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "\n <div class=\"row\">\n    <div class=\"col-12\">\n      <p-carousel [value]=\"productsWishs\" [numVisible]=\"4\" [numScroll]=\"1\" [responsiveOptions]=\"responsiveOptions\"\n        [indicatorsContentClass]=\"'d-none'\" [circular]=\"true\">\n        <ng-template let-productsWish pTemplate=\"item\">\n          <div class=\"card mx-2\">\n            <img src=\"../../assets/{{ productsWish.img }}.jpg\" class=\"img-fluid p-1\"   [ngStyle]=\"{ opacity: imgOpacity, width:imgWidth }\" />\n          </div>\n        </ng-template>\n      </p-carousel>\n    </div>\n  </div>\n\n\n  <!--\n  <div id=\"carouselExampleControls\" class=\"carousel slide\" data-bs-ride=\"carousel\">\n    <div class=\"carousel-inner\">\n        <div class=\"carousel-item active\">\n            <div class=\"row\">\n    <img\n      [ngStyle]=\"{ height: imgHeight}\"\n      src=\"../../assets/{{imgSrc.img}}.jpg\"\n      alt=\"{{ altTxt }}\"\n      class=\"col-12 col-md d-flex align-items-center justify-content-center\"\n      \n    />\n</div>\n    </div>\n    </div>\n    <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleControls\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleControls\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>-->\n\n\n"
         }
     ],
     "modules": [
@@ -564,13 +764,22 @@
                             "name": "AppComponent"
                         },
                         {
+                            "name": "AvatarComponent"
+                        },
+                        {
                             "name": "BannerComponent"
+                        },
+                        {
+                            "name": "CardComponent"
                         },
                         {
                             "name": "ImageComponent"
                         },
                         {
                             "name": "LinkComponent"
+                        },
+                        {
+                            "name": "SliderComponent"
                         }
                     ]
                 },
@@ -705,7 +914,7 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "NoImageCaption",
+                "name": "NoImageAltTxt",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/banner.stories.ts",
@@ -800,6 +1009,14 @@
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/slider.stories.ts",
+                "type": "Story<SliderComponent>",
+                "defaultValue": "(args: SliderComponent) => ({\r\n    component: SliderComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
+            },
+            {
                 "name": "WithFullHeight",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -812,6 +1029,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Image.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithFullOpacity",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/slider.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -832,7 +1057,15 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "WithImageCaption",
+                "name": "WithHalfOpacity",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/slider.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithImageAltTxt",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/banner.stories.ts",
@@ -852,6 +1085,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Image.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithWidth",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/slider.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             }
@@ -1011,7 +1252,7 @@
             ],
             "src/stories/banner.stories.ts": [
                 {
-                    "name": "NoImageCaption",
+                    "name": "NoImageAltTxt",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/banner.stories.ts",
@@ -1043,7 +1284,7 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "WithImageCaption",
+                    "name": "WithImageAltTxt",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/banner.stories.ts",
@@ -1100,6 +1341,40 @@
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 }
+            ],
+            "src/stories/slider.stories.ts": [
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/slider.stories.ts",
+                    "type": "Story<SliderComponent>",
+                    "defaultValue": "(args: SliderComponent) => ({\r\n    component: SliderComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
+                },
+                {
+                    "name": "WithFullOpacity",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/slider.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithHalfOpacity",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/slider.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithWidth",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/slider.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -1121,7 +1396,7 @@
         ]
     },
     "coverage": {
-        "count": 2,
+        "count": 1,
         "status": "low",
         "files": [
             {
@@ -1143,12 +1418,30 @@
                 "status": "low"
             },
             {
+                "filePath": "src/components/avatar/avatar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AvatarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/components/banner/banner.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "BannerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -1167,6 +1460,15 @@
                 "name": "LinkComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/components/slider/slider.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SliderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -1364,7 +1666,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "NoImageCaption",
+                "name": "NoImageAltTxt",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1404,7 +1706,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "WithImageCaption",
+                "name": "WithImageAltTxt",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1454,6 +1756,46 @@
                 "name": "PageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/slider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/slider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithFullOpacity",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/slider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithHalfOpacity",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/slider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithWidth",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
