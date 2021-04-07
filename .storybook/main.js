@@ -10,7 +10,8 @@ module.exports = {
     '@storybook/addon-viewport',
     '@storybook/addon-a11y',
     '@storybook/addon-notes',
-    '@storybook/addon-actions'
+    '@storybook/addon-actions',
+    'storybook-addon-material-ui'
   ],
   babel: async (options) => ({
     ...options,

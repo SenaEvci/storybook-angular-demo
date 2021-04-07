@@ -12,10 +12,15 @@ export class CardComponent {
   @Input('title') title: string = '';
   @Input('subtitle') subtitle: any;
   @Input('imgSrc') imgSrc: string = '/assets/angrybirds.jpg';
+  @Input('altTxt') altTxt: any;
   @Input('content') content = '😄';
   @Output() btnClicked = new EventEmitter<boolean>();
 
 
   @Input()
   imgWidth?: string = "300px";
+
+  handleBtnClick() {
+    console.log('clicked');
+  }
 }

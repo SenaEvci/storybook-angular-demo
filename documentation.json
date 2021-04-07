@@ -88,63 +88,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<app-slider></app-slider>\r\n\r\n"
-        },
-        {
-            "name": "AvatarComponent",
-            "id": "component-AvatarComponent-c0643fbff381d21bc656dde5ad09c45e",
-            "file": "src/components/avatar/avatar.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-avatar",
-            "styleUrls": [
-                "./avatar.component.css"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./avatar.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-avatar',\n  templateUrl: './avatar.component.html',\n  styleUrls: ['./avatar.component.css']\n})\nexport class AvatarComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./avatar.component.css"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div class=\"flex items-center\">\n    <j-avatar [avatarUrl]=\"user?.avatarUrl\"\n              [size]=\"20\">\n    </j-avatar>\n    <span class=\"ml-1-5 mr-1-5 user-name\">\n        {{ user?.name }}\n    </span>\n</div>"
+            "templateData": "<app-toolbar></app-toolbar>\r\n\r\n"
         },
         {
             "name": "BannerComponent",
@@ -304,7 +248,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-c01619a11179d41d88781c8a3890fc1a",
+            "id": "component-CardComponent-29f7065cb4a278196fa0db448d7b54e3",
             "file": "src/components/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -322,9 +266,26 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "altTxt",
+                    "line": 15,
+                    "type": "any"
+                },
+                {
                     "name": "content",
                     "defaultValue": "'😄'",
-                    "line": 14
+                    "line": 16
+                },
+                {
+                    "name": "imgSrc",
+                    "defaultValue": "'/assets/angrybirds.jpg'",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "imgWidth",
+                    "defaultValue": "\"300px\"",
+                    "line": 21,
+                    "type": "string"
                 },
                 {
                     "name": "subtitle",
@@ -333,26 +294,36 @@
                 },
                 {
                     "name": "title",
+                    "defaultValue": "''",
                     "line": 12,
-                    "type": "any"
+                    "type": "string"
                 }
             ],
             "outputsClass": [
                 {
                     "name": "btnClicked",
                     "defaultValue": "new EventEmitter<boolean>()",
-                    "line": 15,
+                    "line": 17,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleBtnClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23
+                }
+            ],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.css']\n})\nexport class CardComponent {\n\n  constructor() { }\n\n  @Input('title') title: any;\n  @Input('subtitle') subtitle: any;\n  @Input('content') content = '😄';\n  @Output() btnClicked = new EventEmitter<boolean>();\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-card',\r\n  templateUrl: './card.component.html',\r\n  styleUrls: ['./card.component.css']\r\n})\r\nexport class CardComponent {\r\n\r\n  constructor() { }\r\n\r\n  @Input('title') title: string = '';\r\n  @Input('subtitle') subtitle: any;\r\n  @Input('imgSrc') imgSrc: string = '/assets/angrybirds.jpg';\r\n  @Input('altTxt') altTxt: any;\r\n  @Input('content') content = '😄';\r\n  @Output() btnClicked = new EventEmitter<boolean>();\r\n\r\n\r\n  @Input()\r\n  imgWidth?: string = \"300px\";\r\n\r\n  handleBtnClick() {\r\n    console.log('clicked');\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -367,7 +338,7 @@
                 "args": [],
                 "line": 8
             },
-            "templateData": "<h1>{{ title }}</h1>\n<h2>{{ subtitle }}</h2>\n\n<hr *ngIf=\"title || subtitle\">\n\n<p>{{ content }}</p>\n\n<button (click)=\"handleBtnClick()\">Click me!</button>"
+            "templateData": "\n    <img\n    [ngStyle]=\"{ width: imgWidth}\"\n    src=\"{{ imgSrc }}\"\n    alt=\"{{ altTxt }}\"\n    class=\"image\"\n    \n  />\n<h1>{{ title }}</h1>\n<h2>{{ subtitle }}</h2>\n\n<hr *ngIf=\"title || subtitle || imgSrc\">\n\n<p>{{ content }}</p>\n\n<button (click)=\"handleBtnClick()\">Click me!</button>"
         },
         {
             "name": "HeaderComponent",
@@ -666,53 +637,31 @@
             "stylesData": ""
         },
         {
-            "name": "SliderComponent",
-            "id": "component-SliderComponent-692182285c88b92be3d19815e6ee3af8",
-            "file": "src/components/slider/slider.component.ts",
+            "name": "ToolbarComponent",
+            "id": "component-ToolbarComponent-12b00819d320499396fad90159c1307b",
+            "file": "src/components/toolbar/toolbar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-slider",
-            "styleUrls": [
-                "./slider.component.css"
-            ],
+            "selector": "app-toolbar",
+            "styleUrls": [],
             "styles": [],
             "templateUrl": [
-                "./slider.component.html"
+                "./toolbar.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "imgOpacity",
-                    "defaultValue": "1",
-                    "line": 45,
-                    "type": "number"
-                },
-                {
-                    "name": "imgWidth",
-                    "defaultValue": "\"300px\"",
-                    "line": 48,
+                    "name": "title",
+                    "defaultValue": "'My App'",
+                    "line": 10,
                     "type": "string"
-                },
-                {
-                    "name": "productsWishs",
-                    "defaultValue": "[\n    { img: 'sims' },\n    { img: 'angrybirds' },\n    { img: 'supermario' },\n    { img: 'fifa' }\n  ]",
-                    "line": 37
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "responsiveOptions",
-                    "defaultValue": "[]",
-                    "type": "any",
-                    "optional": false,
-                    "description": "",
-                    "line": 11
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [
                 {
                     "name": "ngOnInit",
@@ -720,7 +669,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33
+                    "line": 12
                 }
             ],
             "hostBindings": [],
@@ -728,25 +677,14 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n\n@Component({\n  selector: 'app-slider',\n  templateUrl: './slider.component.html',\n  styleUrls: ['./slider.component.css']\n})\nexport class SliderComponent implements OnInit {\n\n  responsiveOptions: any = [];\n\n  constructor() {\n    this.responsiveOptions = [\n      {\n        breakpoint: '1024px',\n        numVisible: 3,\n        numScroll: 3\n      },\n      {\n        breakpoint: '768px',\n        numVisible: 2,\n        numScroll: 2\n      },\n      {\n        breakpoint: '560px',\n        numVisible: 1,\n        numScroll: 1\n      }\n    ];\n  }\n\n  ngOnInit(): void {\n  }\n\n  @Input()\n  productsWishs = [\n    { img: 'sims' },\n    { img: 'angrybirds' },\n    { img: 'supermario' },\n    { img: 'fifa' }\n  ];\n\n  @Input()\n  imgOpacity?: number = 1;\n\n  @Input()\n  imgWidth?: string = \"300px\";\n\n\n}\n\n",
+            "sourceCode": "import { text } from '@storybook/addon-knobs';\r\nimport { Component, Input, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-toolbar',\r\n  templateUrl: './toolbar.component.html',\r\n})\r\nexport class ToolbarComponent implements OnInit {\r\n\r\n  @Input('title') title: string = 'My App'\r\n\r\n  ngOnInit(): void {\r\n\r\n  }\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./slider.component.css"
-                }
-            ],
+            "styleUrlsData": "",
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 11
-            },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "\n <div class=\"row\">\n    <div class=\"col-12\">\n      <p-carousel [value]=\"productsWishs\" [numVisible]=\"4\" [numScroll]=\"1\" [responsiveOptions]=\"responsiveOptions\"\n        [indicatorsContentClass]=\"'d-none'\" [circular]=\"true\">\n        <ng-template let-productsWish pTemplate=\"item\">\n          <div class=\"card mx-2\">\n            <img src=\"../../assets/{{ productsWish.img }}.jpg\" class=\"img-fluid p-1\"   [ngStyle]=\"{ opacity: imgOpacity, width:imgWidth }\" />\n          </div>\n        </ng-template>\n      </p-carousel>\n    </div>\n  </div>\n\n\n  <!--\n  <div id=\"carouselExampleControls\" class=\"carousel slide\" data-bs-ride=\"carousel\">\n    <div class=\"carousel-inner\">\n        <div class=\"carousel-item active\">\n            <div class=\"row\">\n    <img\n      [ngStyle]=\"{ height: imgHeight}\"\n      src=\"../../assets/{{imgSrc.img}}.jpg\"\n      alt=\"{{ altTxt }}\"\n      class=\"col-12 col-md d-flex align-items-center justify-content-center\"\n      \n    />\n</div>\n    </div>\n    </div>\n    <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#carouselExampleControls\" data-bs-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Previous</span>\n      </button>\n      <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#carouselExampleControls\" data-bs-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"visually-hidden\">Next</span>\n      </button>\n    </div>-->\n\n\n"
+            "templateData": "\r\n<mat-toolbar color=\"primary\">\r\n<mat-toolbar-row >\r\n  <span>{{title}}</span>\r\n  <span class=\"example-spacer\"></span>\r\n  <mat-icon class=\"example-icon\" aria-hidden=\"false\" aria-label=\"Example user verified icon\">verified_user</mat-icon>\r\n</mat-toolbar-row>\r\n</mat-toolbar>"
         }
     ],
     "modules": [
@@ -764,9 +702,6 @@
                             "name": "AppComponent"
                         },
                         {
-                            "name": "AvatarComponent"
-                        },
-                        {
                             "name": "BannerComponent"
                         },
                         {
@@ -779,7 +714,7 @@
                             "name": "LinkComponent"
                         },
                         {
-                            "name": "SliderComponent"
+                            "name": "ToolbarComponent"
                         }
                     ]
                 },
@@ -856,6 +791,14 @@
                 "file": "src/test.ts",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "empty",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "environment",
@@ -980,9 +923,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
+                "file": "src/stories/card.stories.ts",
+                "type": "Story<CardComponent>",
+                "defaultValue": "(args: CardComponent) => ({\r\n    component: CardComponent,\r\n    props: args,\r\n    parameters: {\r\n        a11y: {\r\n            element: '#root',\r\n            config: {},\r\n            options: {},\r\n            manual: true,\r\n        },\r\n    }\r\n})"
             },
             {
                 "name": "Template",
@@ -991,6 +934,14 @@
                 "file": "src/stories/Image.stories.ts",
                 "type": "Story<ImageComponent>",
                 "defaultValue": "(args: ImageComponent) => ({\r\n    component: ImageComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Header.stories.ts",
+                "type": "Story<Header>",
+                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1009,12 +960,12 @@
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
-                "name": "Template",
+                "name": "WithFull",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/slider.stories.ts",
-                "type": "Story<SliderComponent>",
-                "defaultValue": "(args: SliderComponent) => ({\r\n    component: SliderComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
+                "file": "src/stories/card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "WithFullHeight",
@@ -1029,14 +980,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Image.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "WithFullOpacity",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/slider.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1057,14 +1000,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "WithHalfOpacity",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/slider.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "WithImageAltTxt",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1081,10 +1016,18 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "WithWidth",
+                "name": "withoutPhoto",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Image.stories.ts",
+                "file": "src/stories/card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "withTitle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/card.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1092,7 +1035,15 @@
                 "name": "WithWidth",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/slider.stories.ts",
+                "file": "src/stories/card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithWidth",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Image.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             }
@@ -1134,6 +1085,56 @@
                     "subtype": "variable",
                     "file": "src/test.ts",
                     "type": "literal type"
+                }
+            ],
+            "src/stories/card.stories.ts": [
+                {
+                    "name": "empty",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card.stories.ts",
+                    "type": "Story<CardComponent>",
+                    "defaultValue": "(args: CardComponent) => ({\r\n    component: CardComponent,\r\n    props: args,\r\n    parameters: {\r\n        a11y: {\r\n            element: '#root',\r\n            config: {},\r\n            options: {},\r\n            manual: true,\r\n        },\r\n    }\r\n})"
+                },
+                {
+                    "name": "WithFull",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "withoutPhoto",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "withTitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithWidth",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -1341,40 +1342,6 @@
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 }
-            ],
-            "src/stories/slider.stories.ts": [
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/slider.stories.ts",
-                    "type": "Story<SliderComponent>",
-                    "defaultValue": "(args: SliderComponent) => ({\r\n    component: SliderComponent,\r\n    props: args,\r\n    parameters: {\r\n        viewport: {\r\n            defaultViewport: 'iphonex'\r\n        },\r\n        a11y: {\r\n            // optional selector which element to inspect\r\n            element: '#root',\r\n            // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)\r\n            config: {},\r\n            // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)\r\n            options: {},\r\n            // optional flag to prevent the automatic check\r\n            manual: true,\r\n        },\r\n    }\r\n})"
-                },
-                {
-                    "name": "WithFullOpacity",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/slider.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "WithHalfOpacity",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/slider.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "WithWidth",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/slider.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -1418,15 +1385,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/components/avatar/avatar.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "AvatarComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
                 "filePath": "src/components/banner/banner.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1441,7 +1399,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -1463,12 +1421,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/components/slider/slider.component.ts",
+                "filePath": "src/components/toolbar/toolbar.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "SliderComponent",
+                "name": "ToolbarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -1721,6 +1679,66 @@
                 "status": "very-good"
             },
             {
+                "filePath": "src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "empty",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithFull",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withoutPhoto",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withTitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithWidth",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/header.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1756,46 +1774,6 @@
                 "name": "PageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/slider.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/slider.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "WithFullOpacity",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/slider.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "WithHalfOpacity",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/slider.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "WithWidth",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
                 "status": "low"
             },
             {
