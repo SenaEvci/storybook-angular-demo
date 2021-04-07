@@ -22,7 +22,7 @@ storiesOf('Toolbar', module)
     .add('color', () => ({
         component: ToolbarComponent,
         props: {
-            toolColor: color('toolColor', 'purple')
+            toolColor: color('toolColor', 'yellow')
         },
         moduleMetadata: {
             imports: [MatToolbarModule, MatIconModule]

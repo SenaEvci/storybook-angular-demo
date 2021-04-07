@@ -10,7 +10,7 @@ export class ToolbarComponent implements OnInit {
   @Input('title') title: string = 'My App'
 
   @Input()
-  toolColor?: string = 'purple';
+  toolColor?: string = 'yellow';
   @Input()
   primary?= true;
 
